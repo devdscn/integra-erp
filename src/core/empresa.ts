@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import oracle from '@/database/OracleDatabase';
 import mongo from '@/database/MongoDatabase';
-import Empresa from '@/Entities/IEmpresa';
+import { Empresa } from '@/model/IEmpresa';
 
 export default function run(query: string) {
   try {

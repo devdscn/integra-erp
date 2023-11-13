@@ -13,10 +13,10 @@ export default class MongoDatabase {
 
   static getDatabase() {
     if (MongoDatabase.database) {
-      console.log('Mongo: instancia já existe');
+      //     console.log('Mongo: instancia já existe');
       return MongoDatabase;
     }
-    console.log('Mongo: criando nova instancia.');
+   // console.log('Mongo: criando nova instancia.');
     MongoDatabase.database = new MongoDatabase();
     return MongoDatabase;
   }

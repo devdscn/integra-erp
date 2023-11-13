@@ -1,4 +1,4 @@
-export default interface Empresa {
+export  interface Empresa {
   _id: number;
   razaSocial: string;
   fantasia: string;

@@ -2,8 +2,9 @@ import 'dotenv/config';
 import express from 'express';
 import oracle from '@/database/OracleDatabase';
 import mongo from '@/database/MongoDatabase';
+import '@/core/job/index';
 //import empresa from '@/core/empresa';
-import EmpresaJob from '@/core/job/EmpresaJob';
+//import EmpresaJob from '@/core/job/EmpresaJob';
 
 class App {
   app = express();
@@ -17,10 +18,11 @@ class App {
   }
 
   async middlewares() {
+    /*
     console.log('Entrou middleawares!!!!!!!!!!1');
-    // await empresa('select *  from tund_unidade');
     const job = new EmpresaJob('select *  from tund_unidade', 'Empresa');
     job.run();
+    */
   }
 
   async banco() {
