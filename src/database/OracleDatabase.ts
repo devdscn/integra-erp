@@ -14,12 +14,17 @@ export default class OracleDatabase {
       connectString: process.env.ORACLE_CONNECT_STRING,
     });
 
-    console.log(`conexao: ${connection.isHealthy()}`);
+   //console.log(`conexao: ${connection.isHealthy()}`);
     return connection;
   }
 
   static getDatabase() {
-    if (OracleDatabase.database) OracleDatabase.database;
+    if (OracleDatabase.database) {
+      console.log('Oracle: instancia já existe.');
+      return OracleDatabase;
+    }
+
+    console.log('Oracle: criando nova instancia.');
     OracleDatabase.database = new OracleDatabase();
     return OracleDatabase;
   }
@@ -28,7 +33,7 @@ export default class OracleDatabase {
     const connection = await this.getDatabase().connection();
     const result = await connection.execute(query);
     await connection.close();
-    if (result) console.log(result.rows);
+    // if (result) console.log(result.rows);
 
     return result;
   }

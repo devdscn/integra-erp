@@ -2,7 +2,6 @@ import { MongoClient } from 'mongodb';
 
 export default class MongoDatabase {
   private static database: MongoDatabase;
-  private static count: number;
 
   private static connection() {
     const mongoClient = new MongoClient(
@@ -14,10 +13,10 @@ export default class MongoDatabase {
 
   static getDatabase() {
     if (MongoDatabase.database) {
-      console.log('instancia já existe');
+      console.log('Mongo: instancia já existe');
       return MongoDatabase;
     }
-    console.log('Criando instancia');
+    console.log('Mongo: criando nova instancia.');
     MongoDatabase.database = new MongoDatabase();
     return MongoDatabase;
   }
@@ -26,6 +25,7 @@ export default class MongoDatabase {
   static async insertMany(collection: string, data: any) {
     try {
       const connection = this.getDatabase().connection();
+
       //carrega coleção recebidade por argumento
       const db = connection.collection(collection);
       //apaga coleção recebida por argumento
@@ -34,15 +34,12 @@ export default class MongoDatabase {
       }
       const options = { ordered: true };
       const result = await db.insertMany(data, options);
-      
+
       //contagem dos documentos inseridos
-      this.count = result.insertedCount;
+      //this.count = result.insertedCount;
+      console.log(`${collection} : ${result.insertedCount} `);
     } catch (error) {
       console.log(`error mongo: ${error}`);
     }
-  }
-
-  static insertedCount() {
-    return this.count;
   }
 }

@@ -4,6 +4,7 @@ export default interface Empresa {
   fantasia: string;
   documento: string;
   inscEstadual?: string;
+  fone?: string;
 }
 
 /*
