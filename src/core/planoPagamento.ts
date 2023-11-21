@@ -31,7 +31,7 @@ const dataMongo = async (query: string) => {
       parcelas: item.TPED_QTDE_PARCELAS as number,
       desconto: item.TPED_DESCONTO_GERAL as number,
       acrescimo: item.TPED_ACRESCIMO_GERAL as number,
-      meioPgamento: tipo.split(',') as string[],
+      meioPgamento: tipo.split(/\s*, \s*/) as string[],
     };
     planos.push(planoPagamento);
   });

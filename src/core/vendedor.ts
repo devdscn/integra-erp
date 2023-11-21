@@ -1,0 +1,41 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import oracle from '@/database/OracleDatabase';
+import mongo from '@/database/MongoDatabase';
+import { Vendedor, idVendedor } from '@/model/IVendedor';
+
+export default function run(query: string) {
+  try {
+    dataMongo(query);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const dataOracale = async (query: string) => {
+  const data = await oracle.executeQuery(query);
+  return data;
+};
+
+const dataMongo = async (query: string) => {
+  const data = await dataOracale(query);
+  const erpVendedor = data.rows;
+  const vendedores = Array<Vendedor>();
+
+  erpVendedor?.forEach((item: any) => {
+    const id: idVendedor = {
+      idEmpresa: item.UNIDADE,
+      idVendedor: item.CODIGO,
+    };
+    const fone = item.FONE as string;
+
+    const vendedor: Vendedor = {
+      _id: id,
+      nome: item.NOME,
+      fone: fone.replace('  ', '').replace(' ', ''),
+      metaVenda: item.META_VENDA_MENSAL,
+    };
+    vendedores.push(vendedor);
+  });
+
+  await mongo.insertMany('vendedores', vendedores);
+};
