@@ -1,10 +1,6 @@
-export type idCliente = {
+export interface Cliente {
   idEmpresa: number;
   idCliente: number;
-};
-
-export interface Cliente {
-  _id: idCliente;
   razaSocial: string;
   fantasia: string;
   endereco: string;

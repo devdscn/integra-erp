@@ -1,11 +1,7 @@
-export type idProduto = {
+export interface Produto {
   idEmpresa: number;
   idProduto: number;
   idSecundario: number;
-};
-
-export interface Produto {
-  _id: idProduto;
   nome: string;
   pesada: string;
   fornecedor: number;

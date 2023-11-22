@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import oracle from '@/database/OracleDatabase';
 import mongo from '@/database/MongoDatabase';
-import {Cliente, idCliente } from '@/model/ICliente';
+import { Cliente } from '@/model/ICliente';
 
 export default function run(query: string) {
   try {
@@ -22,13 +22,9 @@ const dataMongo = async (query: string) => {
   const clientes = Array<Cliente>();
 
   erpClientes?.forEach((item: any) => {
-    const id: idCliente = {
+    const cliente: Cliente = {
       idEmpresa: item.UNIDADE_NEGOCIOS as number,
       idCliente: item.CODIGO as number,
-    };
-
-    const cliente: Cliente = {
-      _id: id,
       razaSocial: item.NOME as string,
       fantasia: item.FANTASIA as string,
       endereco: item.ENDERECO as string,

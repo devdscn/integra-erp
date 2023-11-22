@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import oracle from '@/database/OracleDatabase';
 import mongo from '@/database/MongoDatabase';
-import { Vendedor, idVendedor } from '@/model/IVendedor';
+import { Vendedor } from '@/model/IVendedor';
 
 export default function run(query: string) {
   try {
@@ -22,14 +22,11 @@ const dataMongo = async (query: string) => {
   const vendedores = Array<Vendedor>();
 
   erpVendedor?.forEach((item: any) => {
-    const id: idVendedor = {
-      idEmpresa: item.UNIDADE,
-      idVendedor: item.CODIGO,
-    };
     const fone = item.FONE as string;
 
     const vendedor: Vendedor = {
-      _id: id,
+      idEmpresa: item.UNIDADE,
+      idVendedor: item.CODIGO,
       nome: item.NOME,
       fone: fone.replace('  ', '').replace(' ', ''),
       metaVenda: item.META_VENDA_MENSAL,
