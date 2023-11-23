@@ -1,7 +1,5 @@
 import 'dotenv/config';
 import express from 'express';
-import oracle from '@/database/OracleDatabase';
-import mongo from '@/database/MongoDatabase';
 import '@/core/job/index';
 //import empresa from '@/core/empresa';
 //import EmpresaJob from '@/core/job/EmpresaJob';
@@ -26,11 +24,13 @@ class App {
   }
 
   async banco() {
+    /*
     const empresa = await oracle.executeQuery('select *  from tund_unidade');
     mongo.insertMany('empresas', empresa.rows);
 
     const cliente = await oracle.executeQuery('select *  from VEDI_CLIENTE');
     mongo.insertMany('clientes', cliente.rows);
+    */
   }
 
   listner() {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import oracle from '@/database/OracleDatabase';
-import mongo from '@/database/MongoDatabase';
 import { Produto } from '@/model/IProduto';
+import MongoDatabase from '@/database/MongoDatabase';
 
 export default function run(query: string) {
   try {
@@ -15,6 +15,8 @@ const dataOracale = async (query: string) => {
   const data = await oracle.executeQuery(query);
   return data;
 };
+
+const mongo = new MongoDatabase();
 
 const dataMongo = async (query: string) => {
   const data = await dataOracale(query);
