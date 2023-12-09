@@ -34,5 +34,5 @@ const dataMongo = async (query: string) => {
     empresas.push(empresa);
   });
 
-  await mongo.insertMany('empresas', empresas);
+  await mongo.insertMany('Empresas', empresas);
 };

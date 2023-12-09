@@ -49,5 +49,5 @@ const dataMongo = async (query: string) => {
     produtos.push(produto);
   });
 
-  await mongo.insertMany('produtos', produtos);
+  await mongo.insertMany('Produtos', produtos);
 };

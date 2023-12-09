@@ -1,6 +1,6 @@
 export interface Vendedor {
-  idEmpresa: number;
   idVendedor: number;
+  idEmpresa: number;
   nome: string;
   fone: string;
   metaVenda: number;

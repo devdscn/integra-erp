@@ -47,5 +47,5 @@ const dataMongo = async (query: string) => {
     clientes.push(cliente);
   });
 
-  await mongo.insertMany('clientes', clientes);
+  await mongo.insertMany('Clientes', clientes);
 };

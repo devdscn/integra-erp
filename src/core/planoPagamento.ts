@@ -38,5 +38,5 @@ const dataMongo = async (query: string) => {
     planos.push(planoPagamento);
   });
 
-  await mongo.insertMany('planosPagamento', planos);
+  await mongo.insertMany('PlanosPagamento', planos);
 };

@@ -27,8 +27,8 @@ const dataMongo = async (query: string) => {
     const fone = item.FONE as string;
 
     const vendedor: Vendedor = {
-      idEmpresa: item.UNIDADE,
-      idVendedor: item.CODIGO,
+      idEmpresa: item.UNIDADE as number,
+      idVendedor: item.CODIGO as number,
       nome: item.NOME,
       fone: fone.replace('  ', '').replace(' ', ''),
       metaVenda: item.META_VENDA_MENSAL,
@@ -36,5 +36,5 @@ const dataMongo = async (query: string) => {
     vendedores.push(vendedor);
   });
 
-  await mongo.insertMany('vendedores', vendedores);
+  await mongo.insertMany('Vendedores', vendedores);
 };
