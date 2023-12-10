@@ -2,10 +2,11 @@ export interface Produto {
   idEmpresa: number;
   idProduto: number;
   idSecundario: number;
+  idGrupo: string;
+  nomeGrupo: string;
   nome: string;
   pesada: string;
   fornecedor: number;
-  grupo: string;
   linha: string;
   unidadeFisica: string;
   unidadeVenda: number;
@@ -29,6 +30,7 @@ DESCRICAO
 PESO
 FORNECEDOR
 GRUPO
+DESGRUPO
 LINHA_DE_VENDA
 UNIDADE_FISICA
 FRACAO
