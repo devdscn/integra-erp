@@ -36,7 +36,7 @@ const dataMongo = async (query: string) => {
       fone: item.TELEFONE as string,
       rota: item.ROTA as string,
       credito: item.SALDO_CREDITO as number | 0,
-      vendedor: item.VENDEDOR_PADRAO as number,
+      idVendedor: item.VENDEDOR_PADRAO as number,
       status: item.STATUS as number,
       meioPagamento: item.FORMA_PAGAMENTO as string,
       documento: item.CGC_CNPJ as string,

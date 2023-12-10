@@ -11,7 +11,7 @@ export interface Cliente {
   fone?: string;
   rota: string;
   credito: number | 0;
-  vendedor: number;
+  idVendedor: number;
   status: number;
   meioPagamento: string;
   documento?: string;
